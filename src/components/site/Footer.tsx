@@ -29,7 +29,8 @@ export const Footer = () => {
           <h4 className="font-display font-bold mb-4">Contact</h4>
           <ul className="space-y-3 text-white/80">
             <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-accent" /> hello@smilesanctuary.cr</li>
-            <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-accent" /> +1 (800) 000-0000</li>
+            <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-accent" /> US: +1 (888) 876-3790</li>
+            <li className="flex items-center gap-3"><MessageCircle className="h-4 w-4 text-accent" /> WhatsApp: +1 (805) 717-8138</li>
             <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-accent" /> Guanacaste, Costa Rica</li>
           </ul>
         </div>
