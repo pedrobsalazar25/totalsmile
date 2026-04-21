@@ -34,10 +34,21 @@ export const Footer = () => {
         <div>
           <h4 className="font-display font-bold mb-4">Contact</h4>
           <ul className="space-y-3 text-white/80">
-            <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-accent" /> hello@smilesanctuary.cr</li>
-            <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-accent" /> US: +1 (888) 876-3790</li>
-            <li className="flex items-center gap-3"><MessageCircle className="h-4 w-4 text-accent" /> WhatsApp: +1 (805) 717-8138</li>
-            <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-accent" /> Guanacaste, Costa Rica</li>
+            <li className="flex items-center gap-3">
+              <Mail className="h-4 w-4 text-accent shrink-0" />
+              <a href="mailto:info@smilesanctuary.cr" className="hover:text-accent transition-colors">info@smilesanctuary.cr</a>
+            </li>
+            <li className="flex items-center gap-3">
+              <Phone className="h-4 w-4 text-accent shrink-0" />
+              <a href="tel:+18888763790" className="hover:text-accent transition-colors">Phone: (888) 876-3790</a>
+            </li>
+            <li className="flex items-center gap-3">
+              <WhatsAppIcon className="h-4 w-4 text-accent shrink-0" />
+              <a href="https://wa.me/18057178138" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                WhatsApp: (805) 717-8138
+              </a>
+            </li>
+            <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-accent shrink-0" /> Guanacaste, Costa Rica</li>
           </ul>
         </div>
       </div>
