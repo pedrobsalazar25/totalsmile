@@ -1,7 +1,9 @@
 import heroBg from "@/assets/hero-bg.jpeg";
 import { ShieldCheck, Sparkles, Plane } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const Hero = () => {
+  const { t } = useLanguage();
   return (
     <section id="top" className="relative min-h-[100svh] flex items-center overflow-hidden">
       <img
@@ -15,14 +17,13 @@ export const Hero = () => {
       <div className="container mx-auto relative z-10 py-32">
         <div className="max-w-3xl glass rounded-[24px] p-8 md:p-12 animate-fade-in">
           <p className="text-white/90 font-semibold tracking-[0.2em] text-xs md:text-sm uppercase mb-4">
-            Costa Rica Dental Excellence
+            {t("hero_eyebrow")}
           </p>
           <h1 className="font-display font-bold text-white text-4xl md:text-6xl leading-[1.05] tracking-tight">
-            Your Journey to a Perfect Smile Starts in Paradise
+            {t("hero_title")}
           </h1>
           <p className="mt-6 text-white/95 text-lg md:text-xl leading-relaxed max-w-2xl">
-            Why choose between affordable dental care and a luxury vacation? At The Smile Sanctuary,
-            we combine elite dental expertise with the breathtaking beauty of Costa Rica.
+            {t("hero_desc")}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -30,22 +31,22 @@ export const Hero = () => {
               href="#cta"
               className="rounded-xl bg-coral text-coral-foreground px-7 py-4 font-semibold shadow-coral hover:scale-[1.02] active:scale-[0.98] transition-transform animate-pulse-soft"
             >
-              Get My Free Quote
+              {t("cta_quote")}
             </a>
             <a
               href="#locations"
               className="rounded-xl border-2 border-white/80 text-white px-7 py-4 font-semibold hover:bg-white hover:text-primary transition-colors"
             >
-              View Our Gallery
+              {t("hero_view_gallery")}
             </a>
           </div>
         </div>
 
         <div className="mt-8 flex flex-wrap gap-3 max-w-3xl">
           {[
-            { icon: Sparkles, label: "Save up to 70%" },
-            { icon: ShieldCheck, label: "Board-certified specialists" },
-            { icon: Plane, label: "Concierge included" },
+            { icon: Sparkles, label: t("hero_badge_save") },
+            { icon: ShieldCheck, label: t("hero_badge_certified") },
+            { icon: Plane, label: t("hero_badge_concierge") },
           ].map(({ icon: Icon, label }) => (
             <div
               key={label}
