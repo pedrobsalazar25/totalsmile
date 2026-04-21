@@ -28,7 +28,7 @@ export const Navbar = () => {
     >
       <div className="container mx-auto flex h-20 items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logo} alt="The Smile Sanctuary logo" className="h-11 w-11" />
+          <img src={logo} alt="The Smile Sanctuary logo" className="h-11 w-11 rounded-full bg-white p-1 shadow-soft" />
           <span className={`font-display font-bold text-lg leading-tight ${scrolled ? "text-primary" : "text-white drop-shadow"}`}>
             The Smile Sanctuary
           </span>

@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="container mx-auto py-16 grid md:grid-cols-3 gap-10">
         <div>
           <div className="flex items-center gap-3">
-            <img src={logo} alt="The Smile Sanctuary" className="h-12 w-12" />
+            <img src={logo} alt="The Smile Sanctuary" className="h-12 w-12 rounded-full bg-white p-1" />
             <div>
               <p className="font-display font-bold text-lg leading-tight">The Smile Sanctuary</p>
               <p className="text-white/70 text-sm">Costa Rica Dental Excellence</p>
