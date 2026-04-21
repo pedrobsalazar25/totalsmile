@@ -40,12 +40,12 @@ export const Footer = () => {
             </li>
             <li className="flex items-center gap-3">
               <Phone className="h-4 w-4 text-accent shrink-0" />
-              <a href="tel:+18888763790" className="hover:text-accent transition-colors">Phone: (888) 876-3790</a>
+              <a href="tel:+18888763790" className="hover:text-accent transition-colors">(888) 876-3790</a>
             </li>
             <li className="flex items-center gap-3">
               <WhatsAppIcon className="h-4 w-4 text-accent shrink-0" />
               <a href="https://wa.me/18057178138" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                WhatsApp: (805) 717-8138
+                (805) 717-8138
               </a>
             </li>
             <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-accent shrink-0" /> Guanacaste, Costa Rica</li>
