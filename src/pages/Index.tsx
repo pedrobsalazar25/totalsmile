@@ -5,6 +5,7 @@ import { Locations } from "@/components/site/Locations";
 import { Recovery } from "@/components/site/Recovery";
 import { Concierge } from "@/components/site/Concierge";
 import { CTASection } from "@/components/site/CTASection";
+import { QuoteForm } from "@/components/site/QuoteForm";
 import { Footer } from "@/components/site/Footer";
 import { useEffect } from "react";
 
@@ -27,6 +28,7 @@ const Index = () => {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <QuoteForm />
       <Locations />
       <Recovery />
       <Concierge />
