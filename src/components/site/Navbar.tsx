@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
-
-const links = [
-  { label: "Locations", href: "#locations" },
-  { label: "Recovery", href: "#recovery" },
-  { label: "Concierge", href: "#concierge" },
-  { label: "Contact", href: "#cta" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
+import { LanguageToggle } from "./LanguageToggle";
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const links = [
+    { label: t("nav_locations"), href: "#locations" },
+    { label: t("nav_recovery"), href: "#recovery" },
+    { label: t("nav_concierge"), href: "#concierge" },
+    { label: t("nav_contact"), href: "#cta" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -45,20 +48,24 @@ export const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <LanguageToggle scrolled={scrolled} />
           <a
             href="#cta"
             className="rounded-xl bg-coral text-coral-foreground px-5 py-2.5 text-sm font-semibold shadow-coral hover:scale-[1.02] transition-transform"
           >
-            Get My Free Quote
+            {t("cta_quote")}
           </a>
         </nav>
-        <button
-          className={`md:hidden p-2 rounded-lg ${scrolled ? "text-primary" : "text-white"}`}
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X /> : <Menu />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageToggle scrolled={scrolled} />
+          <button
+            className={`p-2 rounded-lg ${scrolled ? "text-primary" : "text-white"}`}
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
       {open && (
         <div className="md:hidden bg-background border-t border-border shadow-soft">
@@ -78,7 +85,7 @@ export const Navbar = () => {
               onClick={() => setOpen(false)}
               className="mt-2 rounded-xl bg-coral text-coral-foreground px-5 py-3 text-center font-semibold shadow-coral"
             >
-              Get My Free Quote
+              {t("cta_quote")}
             </a>
           </div>
         </div>

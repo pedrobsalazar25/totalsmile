@@ -7,7 +7,10 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+import { useLanguage } from "@/i18n/LanguageContext";
+
 export const Footer = () => {
+  const { t } = useLanguage();
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto py-16 grid md:grid-cols-3 gap-10">
@@ -16,23 +19,21 @@ export const Footer = () => {
             <img src={logo} alt="The Smile Sanctuary" className="h-12 w-12 rounded-full bg-white p-1" />
             <div>
               <p className="font-display font-bold text-lg leading-tight">The Smile Sanctuary</p>
-              <p className="text-white/70 text-sm">Costa Rica Dental Excellence</p>
+              <p className="text-white/70 text-sm">{t("footer_tagline")}</p>
             </div>
           </div>
-          <p className="mt-6 text-white/75 leading-relaxed max-w-sm">
-            Elite dental care, paired with the warmth of paradise. Three locations across Costa Rica.
-          </p>
+          <p className="mt-6 text-white/75 leading-relaxed max-w-sm">{t("footer_blurb")}</p>
         </div>
 
         <div>
-          <h4 className="font-display font-bold mb-4">Visit</h4>
+          <h4 className="font-display font-bold mb-4">{t("footer_visit")}</h4>
           <ul className="space-y-2 text-white/80">
             <li>Alajuela • Pérez Zeledón • Playas del Coco</li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-display font-bold mb-4">Contact</h4>
+          <h4 className="font-display font-bold mb-4">{t("footer_contact")}</h4>
           <ul className="space-y-3 text-white/80">
             <li className="flex items-center gap-3">
               <Mail className="h-4 w-4 text-accent shrink-0" />
@@ -54,8 +55,8 @@ export const Footer = () => {
       </div>
       <div className="border-t border-white/10">
         <div className="container mx-auto py-6 text-sm text-white/60 flex flex-col md:flex-row justify-between gap-2">
-          <p>© {new Date().getFullYear()} The Smile Sanctuary. All rights reserved.</p>
-          <p>Made with care in Costa Rica.</p>
+          <p>© {new Date().getFullYear()} The Smile Sanctuary. {t("footer_rights")}</p>
+          <p>{t("footer_made")}</p>
         </div>
       </div>
     </footer>
