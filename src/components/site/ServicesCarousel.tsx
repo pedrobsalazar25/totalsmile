@@ -15,7 +15,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 export const ServicesCarousel = () => {
   const { t, lang } = useLanguage();
   const autoplay = useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true })
+    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true, stopOnFocusIn: false })
   );
 
   return (
