@@ -2,6 +2,7 @@ import { useReveal } from "@/hooks/useReveal";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { Locations } from "@/components/site/Locations";
+import { ServicesCarousel } from "@/components/site/ServicesCarousel";
 import { Recovery } from "@/components/site/Recovery";
 import { Concierge } from "@/components/site/Concierge";
 import { CTASection } from "@/components/site/CTASection";
@@ -34,6 +35,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Locations />
+      <ServicesCarousel />
       <Recovery />
       <Concierge />
       <CTASection />
