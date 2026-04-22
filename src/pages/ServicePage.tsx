@@ -58,7 +58,7 @@ const ServicePage = () => {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 md:py-24 bg-[hsl(var(--warm-sand))]">
+      <section className="py-20 md:py-24 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-14 reveal">
             <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">Why Choose Us</p>
@@ -117,7 +117,7 @@ const ServicePage = () => {
       )}
 
       {/* Candidates */}
-      <section className="py-20 md:py-24 bg-[hsl(var(--warm-sand))]">
+      <section className="py-20 md:py-24 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto reveal">
             <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">Eligibility</p>
