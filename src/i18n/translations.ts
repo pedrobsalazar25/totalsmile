@@ -71,6 +71,35 @@ const en = {
 
   // Toggle
   lang_toggle_aria: "Switch language",
+
+  // Navbar / Service pages
+  nav_home: "Home",
+  nav_services: "Services",
+  svc_brand_eyebrow: "The Smile Sanctuary",
+  svc_get_quote: "Get a Free Quote",
+  svc_overview: "Overview",
+  svc_why_choose: "Why Choose Us",
+  svc_key_benefits: "Key Benefits",
+  svc_implant_options: "Implant Options",
+  svc_full_arch: "Full-Arch Solutions",
+  svc_full_arch_desc: "Choose the implant configuration that fits your bone structure and lifestyle.",
+  svc_eligibility: "Eligibility",
+  svc_who_candidate: "Who Is a Candidate?",
+  svc_what_to_expect: "What to Expect",
+  svc_process: "The Procedure Process",
+  svc_step1_title: "Consultation",
+  svc_step1_desc: "Free virtual consultation and treatment plan within 24 hours.",
+  svc_step2_title: "Procedure",
+  svc_step2_desc: "Performed by board-certified specialists in our state-of-the-art clinics.",
+  svc_step3_title: "Recovery",
+  svc_step3_desc: "Heal in luxury at our Playa del Coco Recovery Center with concierge support.",
+  svc_cta_title: "Ready to Get Started?",
+  svc_cta_desc: "Get a free, no-obligation quote within 24 hours.",
+  svc_cta_primary: "Get My Free Quote",
+  svc_cta_secondary: "Schedule a Consultation",
+  svc_explore_more: "Explore More",
+  svc_related: "Related Procedures",
+  svc_learn_more: "Learn more",
 };
 
 const es: typeof en = {
@@ -139,6 +168,34 @@ const es: typeof en = {
   footer_made: "Hecho con cariño en Costa Rica.",
 
   lang_toggle_aria: "Cambiar idioma",
+
+  nav_home: "Inicio",
+  nav_services: "Servicios",
+  svc_brand_eyebrow: "The Smile Sanctuary",
+  svc_get_quote: "Cotización Gratis",
+  svc_overview: "Resumen",
+  svc_why_choose: "Por Qué Elegirnos",
+  svc_key_benefits: "Beneficios Clave",
+  svc_implant_options: "Opciones de Implantes",
+  svc_full_arch: "Soluciones de Arcada Completa",
+  svc_full_arch_desc: "Elige la configuración de implantes que se adapta a tu estructura ósea y estilo de vida.",
+  svc_eligibility: "Elegibilidad",
+  svc_who_candidate: "¿Quién es Candidato?",
+  svc_what_to_expect: "Qué Esperar",
+  svc_process: "El Proceso del Procedimiento",
+  svc_step1_title: "Consulta",
+  svc_step1_desc: "Consulta virtual gratuita y plan de tratamiento en 24 horas.",
+  svc_step2_title: "Procedimiento",
+  svc_step2_desc: "Realizado por especialistas certificados en nuestras clínicas de última generación.",
+  svc_step3_title: "Recuperación",
+  svc_step3_desc: "Sana con lujo en nuestro Centro de Recuperación de Playa del Coco con apoyo de concierge.",
+  svc_cta_title: "¿Listo para Comenzar?",
+  svc_cta_desc: "Obtén una cotización gratis y sin compromiso en 24 horas.",
+  svc_cta_primary: "Obtén tu Cotización Gratis",
+  svc_cta_secondary: "Agenda una Consulta",
+  svc_explore_more: "Explora Más",
+  svc_related: "Procedimientos Relacionados",
+  svc_learn_more: "Conoce más",
 };
 
 export const translations = { en, es };

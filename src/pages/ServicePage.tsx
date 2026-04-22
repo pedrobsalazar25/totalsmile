@@ -7,18 +7,21 @@ import { ServiceHero } from "@/components/site/ServiceHero";
 import { ServiceCTA } from "@/components/site/ServiceCTA";
 import { useReveal } from "@/hooks/useReveal";
 import { getService, services } from "@/data/services";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const benefitIcons = [Sparkles, ShieldCheck, Stethoscope, Award];
 
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
   useReveal();
+  const { lang, t } = useLanguage();
   const service = slug ? getService(slug) : undefined;
+  const content = service?.i18n[lang];
 
   useEffect(() => {
-    if (!service) return;
-    document.title = `${service.title} — The Smile Sanctuary Costa Rica`;
-    const desc = service.subheadline.slice(0, 155);
+    if (!service || !content) return;
+    document.title = `${content.title} — The Smile Sanctuary Costa Rica`;
+    const desc = content.subheadline.slice(0, 155);
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
@@ -27,9 +30,9 @@ const ServicePage = () => {
     }
     meta.setAttribute("content", desc);
     window.scrollTo(0, 0);
-  }, [service]);
+  }, [service, content]);
 
-  if (!service) return <Navigate to="/" replace />;
+  if (!service || !content) return <Navigate to="/" replace />;
 
   const related = service.related
     .map((s) => services.find((x) => x.slug === s))
@@ -38,18 +41,18 @@ const ServicePage = () => {
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
-      <ServiceHero title={service.title} subheadline={service.subheadline} image={service.image} />
+      <ServiceHero title={content.title} subheadline={content.subheadline} image={service.image} />
 
       {/* What is */}
       <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto reveal">
-            <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">Overview</p>
+            <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">{t("svc_overview")}</p>
             <h2 className="font-display font-bold text-primary text-3xl md:text-4xl tracking-tight">
-              {service.whatTitle}
+              {content.whatTitle}
             </h2>
             <div className="mt-6 space-y-5 text-foreground/85 text-lg leading-relaxed">
-              {service.whatParagraphs.map((p, i) => (
+              {content.whatParagraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
@@ -61,13 +64,13 @@ const ServicePage = () => {
       <section className="py-20 md:py-24 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-14 reveal">
-            <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">Why Choose Us</p>
+            <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">{t("svc_why_choose")}</p>
             <h2 className="font-display font-bold text-primary text-3xl md:text-5xl tracking-tight">
-              Key Benefits
+              {t("svc_key_benefits")}
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {service.benefits.map((b, i) => {
+            {content.benefits.map((b, i) => {
               const Icon = benefitIcons[i % benefitIcons.length];
               return (
                 <article
@@ -88,20 +91,20 @@ const ServicePage = () => {
       </section>
 
       {/* Subsections (e.g. All-on-X) */}
-      {service.subsections && (
+      {content.subsections && (
         <section className="py-20 md:py-24 bg-background">
           <div className="container mx-auto">
             <div className="max-w-2xl mx-auto text-center mb-14 reveal">
-              <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">Implant Options</p>
+              <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">{t("svc_implant_options")}</p>
               <h2 className="font-display font-bold text-primary text-3xl md:text-5xl tracking-tight">
-                Full-Arch Solutions
+                {t("svc_full_arch")}
               </h2>
               <p className="mt-4 text-muted-foreground text-lg">
-                Choose the implant configuration that fits your bone structure and lifestyle.
+                {t("svc_full_arch_desc")}
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
-              {service.subsections.map((sub, i) => (
+              {content.subsections.map((sub, i) => (
                 <article
                   key={sub.title}
                   className="reveal card-float bg-card rounded-2xl p-8 border border-border"
@@ -120,12 +123,12 @@ const ServicePage = () => {
       <section className="py-20 md:py-24 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto reveal">
-            <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">Eligibility</p>
+            <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">{t("svc_eligibility")}</p>
             <h2 className="font-display font-bold text-primary text-3xl md:text-4xl tracking-tight">
-              Who Is a Candidate?
+              {t("svc_who_candidate")}
             </h2>
             <ul className="mt-8 space-y-4">
-              {service.candidates.map((c) => (
+              {content.candidates.map((c) => (
                 <li key={c} className="flex items-start gap-3 text-foreground/85 text-lg leading-relaxed">
                   <CheckCircle2 className="h-6 w-6 text-aqua shrink-0 mt-1" />
                   <span>{c}</span>
@@ -140,16 +143,16 @@ const ServicePage = () => {
       <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-14 reveal">
-            <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">What to Expect</p>
+            <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">{t("svc_what_to_expect")}</p>
             <h2 className="font-display font-bold text-primary text-3xl md:text-5xl tracking-tight">
-              The Procedure Process
+              {t("svc_process")}
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { step: "01", title: "Consultation", desc: "Free virtual consultation and treatment plan within 24 hours." },
-              { step: "02", title: "Procedure", desc: "Performed by board-certified specialists in our state-of-the-art clinics." },
-              { step: "03", title: "Recovery", desc: "Heal in luxury at our Playa del Coco Recovery Center with concierge support." },
+              { step: "01", title: t("svc_step1_title"), desc: t("svc_step1_desc") },
+              { step: "02", title: t("svc_step2_title"), desc: t("svc_step2_desc") },
+              { step: "03", title: t("svc_step3_title"), desc: t("svc_step3_desc") },
             ].map((s, i) => (
               <article
                 key={s.step}
@@ -171,36 +174,39 @@ const ServicePage = () => {
       <section className="py-20 md:py-24 bg-background">
         <div className="container mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-14 reveal">
-            <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">Explore More</p>
+            <p className="text-aqua font-semibold tracking-[0.2em] text-xs uppercase mb-3">{t("svc_explore_more")}</p>
             <h2 className="font-display font-bold text-primary text-3xl md:text-5xl tracking-tight">
-              Related Procedures
+              {t("svc_related")}
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {related.map((r, i) => (
-              <Link
-                key={r.slug}
-                to={`/services/${r.slug}`}
-                className="reveal card-float bg-card rounded-2xl overflow-hidden border border-border group"
-                data-delay={i * 100}
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={r.image}
-                    alt={r.title}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display font-bold text-primary text-xl">{r.title}</h3>
-                  <p className="mt-2 text-foreground/75 leading-relaxed line-clamp-2">{r.subheadline}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-aqua font-semibold">
-                    Learn more <ArrowRight className="h-4 w-4" />
-                  </span>
-                </div>
-              </Link>
-            ))}
+            {related.map((r, i) => {
+              const rc = r.i18n[lang];
+              return (
+                <Link
+                  key={r.slug}
+                  to={`/services/${r.slug}`}
+                  className="reveal card-float bg-card rounded-2xl overflow-hidden border border-border group"
+                  data-delay={i * 100}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={r.image}
+                      alt={rc.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-display font-bold text-primary text-xl">{rc.title}</h3>
+                    <p className="mt-2 text-foreground/75 leading-relaxed line-clamp-2">{rc.subheadline}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-aqua font-semibold">
+                      {t("svc_learn_more")} <ArrowRight className="h-4 w-4" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
