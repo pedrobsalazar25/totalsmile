@@ -71,6 +71,35 @@ const en = {
 
   // Toggle
   lang_toggle_aria: "Switch language",
+
+  // Navbar / Service pages
+  nav_home: "Home",
+  nav_services: "Services",
+  svc_brand_eyebrow: "The Smile Sanctuary",
+  svc_get_quote: "Get a Free Quote",
+  svc_overview: "Overview",
+  svc_why_choose: "Why Choose Us",
+  svc_key_benefits: "Key Benefits",
+  svc_implant_options: "Implant Options",
+  svc_full_arch: "Full-Arch Solutions",
+  svc_full_arch_desc: "Choose the implant configuration that fits your bone structure and lifestyle.",
+  svc_eligibility: "Eligibility",
+  svc_who_candidate: "Who Is a Candidate?",
+  svc_what_to_expect: "What to Expect",
+  svc_process: "The Procedure Process",
+  svc_step1_title: "Consultation",
+  svc_step1_desc: "Free virtual consultation and treatment plan within 24 hours.",
+  svc_step2_title: "Procedure",
+  svc_step2_desc: "Performed by board-certified specialists in our state-of-the-art clinics.",
+  svc_step3_title: "Recovery",
+  svc_step3_desc: "Heal in luxury at our Playa del Coco Recovery Center with concierge support.",
+  svc_cta_title: "Ready to Get Started?",
+  svc_cta_desc: "Get a free, no-obligation quote within 24 hours.",
+  svc_cta_primary: "Get My Free Quote",
+  svc_cta_secondary: "Schedule a Consultation",
+  svc_explore_more: "Explore More",
+  svc_related: "Related Procedures",
+  svc_learn_more: "Learn more",
 };
 
 const es: typeof en = {
