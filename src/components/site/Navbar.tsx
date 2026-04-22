@@ -11,7 +11,7 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const location = useLocation();
   const onHome = location.pathname === "/";
 
