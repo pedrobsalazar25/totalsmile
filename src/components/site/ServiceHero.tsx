@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface Props {
   title: string;
@@ -7,6 +8,7 @@ interface Props {
 }
 
 export const ServiceHero = ({ title, subheadline, image }: Props) => {
+  const { t } = useLanguage();
   return (
     <section className="relative min-h-[70svh] flex items-center overflow-hidden pt-20">
       <img
@@ -20,7 +22,7 @@ export const ServiceHero = ({ title, subheadline, image }: Props) => {
       <div className="container mx-auto relative z-10 py-20">
         <div className="max-w-3xl glass rounded-[24px] p-8 md:p-12 animate-fade-in">
           <p className="text-white/90 font-semibold tracking-[0.2em] text-xs md:text-sm uppercase mb-4">
-            The Smile Sanctuary
+            {t("svc_brand_eyebrow")}
           </p>
           <h1 className="font-display font-bold text-white text-4xl md:text-6xl leading-[1.05] tracking-tight">
             {title}
@@ -33,7 +35,7 @@ export const ServiceHero = ({ title, subheadline, image }: Props) => {
               to="/#cta"
               className="rounded-xl bg-coral text-coral-foreground px-7 py-4 font-semibold shadow-coral hover:scale-[1.02] active:scale-[0.98] transition-transform"
             >
-              Get a Free Quote
+              {t("svc_get_quote")}
             </Link>
           </div>
         </div>

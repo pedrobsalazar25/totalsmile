@@ -55,7 +55,7 @@ export const Navbar = () => {
               solid ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"
             }`}
           >
-            Home
+            {t("nav_home")}
           </Link>
 
           {/* Services dropdown */}
@@ -70,7 +70,7 @@ export const Navbar = () => {
                 solid ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"
               }`}
             >
-              Services
+              {t("nav_services")}
               <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
             </button>
             {servicesOpen && (
@@ -84,7 +84,7 @@ export const Navbar = () => {
                           onClick={() => setServicesOpen(false)}
                           className="block px-5 py-2.5 text-sm font-semibold text-foreground hover:bg-secondary hover:text-primary transition-colors"
                         >
-                          {s.title}
+                          {s.i18n[lang].title}
                         </Link>
                       </li>
                     ))}
@@ -131,14 +131,14 @@ export const Navbar = () => {
         <div className="md:hidden bg-background border-t border-border shadow-soft max-h-[80vh] overflow-y-auto">
           <div className="container mx-auto py-4 flex flex-col gap-1">
             <Link to="/" onClick={() => setOpen(false)} className="py-2 text-foreground font-semibold">
-              Home
+              {t("nav_home")}
             </Link>
 
             <button
               onClick={() => setMobileServicesOpen((v) => !v)}
               className="flex items-center justify-between py-2 text-foreground font-semibold w-full"
             >
-              <span>Services</span>
+              <span>{t("nav_services")}</span>
               <ChevronDown className={`h-4 w-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
             </button>
             {mobileServicesOpen && (
@@ -150,7 +150,7 @@ export const Navbar = () => {
                       onClick={() => setOpen(false)}
                       className="block py-2 text-sm text-foreground/80 hover:text-primary"
                     >
-                      {s.title}
+                      {s.i18n[lang].title}
                     </Link>
                   </li>
                 ))}
