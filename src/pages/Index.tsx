@@ -12,6 +12,12 @@ const Index = () => {
   useReveal();
 
   useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.slice(1);
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 80);
+    }
     document.title = "The Smile Sanctuary — Costa Rica Dental Excellence";
     const desc = "Elite dental care in Costa Rica paired with luxury recovery, concierge transport, and tropical paradise. Free virtual quote in 24 hours.";
     let meta = document.querySelector('meta[name="description"]');
