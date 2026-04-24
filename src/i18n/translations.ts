@@ -106,6 +106,12 @@ const en = {
   blog_title: "Insights, Stories & Smile Journeys",
   blog_desc:
     "Patient stories, expert tips, and everything you need to know about your journey to a healthier smile in Costa Rica.",
+
+  // Consultation page
+  consult_eyebrow: "Free Consultation",
+  consult_title: "Request Your Free Dental Consultation",
+  consult_desc:
+    "Tell us about your smile goals. Our team will get back to you within 24 hours with a personalized plan and quote.",
 };
 
 const es: typeof en = {
@@ -207,6 +213,11 @@ const es: typeof en = {
   blog_title: "Historias, Consejos y Sonrisas",
   blog_desc:
     "Historias de pacientes, consejos de expertos y todo lo que necesitas saber sobre tu camino hacia una sonrisa más saludable en Costa Rica.",
+
+  consult_eyebrow: "Consulta Gratis",
+  consult_title: "Solicita tu Consulta Dental Gratuita",
+  consult_desc:
+    "Cuéntanos sobre tus objetivos. Nuestro equipo te responderá en 24 horas con un plan y cotización personalizada.",
 };
 
 export const translations = { en, es };
