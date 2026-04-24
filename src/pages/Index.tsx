@@ -4,6 +4,7 @@ import { Hero } from "@/components/site/Hero";
 import { Locations } from "@/components/site/Locations";
 import { ServicesCarousel } from "@/components/site/ServicesCarousel";
 import { Recovery } from "@/components/site/Recovery";
+import { SoroBlog } from "@/components/site/SoroBlog";
 import { Concierge } from "@/components/site/Concierge";
 import { CTASection } from "@/components/site/CTASection";
 import { Footer } from "@/components/site/Footer";
@@ -37,6 +38,7 @@ const Index = () => {
       <Locations />
       <ServicesCarousel />
       <Recovery />
+      <SoroBlog />
       <Concierge />
       <CTASection />
       <Footer />
