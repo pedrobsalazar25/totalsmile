@@ -1,5 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getArticles, type TrysoroArticle } from "@/lib/trysoro";
 
 const BLOG_OG_IMAGE =
   "https://storage.googleapis.com/gpt-engineer-file-uploads/CB7rW9WWHhYCSIWkBTL8F09IjxS2/social-images/social-1776787238325-social_share_.webp";
@@ -28,39 +31,31 @@ const upsertMeta = (selector: string, attr: "name" | "property", key: string, co
   el.dataset.blogSeo = "true";
 };
 
-const upsertLink = (rel: string, href: string) => {
-  let el = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"][data-blog-seo="true"]`);
-  if (!el) {
-    el = document.createElement("link");
-    el.setAttribute("rel", rel);
-    el.dataset.blogSeo = "true";
-    document.head.appendChild(el);
-  }
-  el.setAttribute("href", href);
-};
-
 export const SoroBlog = () => {
   const { t, lang } = useLanguage();
+  const [articles, setArticles] = useState<TrysoroArticle[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const existing = document.querySelector<HTMLScriptElement>(
-      'script[src="https://app.trysoro.com/api/embed/07804d90-9cab-4971-b047-4f28ca7e483f"]'
-    );
-    if (existing) return;
-    const script = document.createElement("script");
-    script.src = "https://app.trysoro.com/api/embed/07804d90-9cab-4971-b047-4f28ca7e483f";
-    script.defer = true;
-    document.body.appendChild(script);
+    let cancelled = false;
+    getArticles()
+      .then((list) => {
+        if (cancelled) return;
+        setArticles(list);
+        setLoading(false);
+      })
+      .catch(() => !cancelled && setLoading(false));
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  // Inject blog-specific SEO/OG tags when the user lands on or scrolls to #blog
+  // Inject blog-section SEO when scrolled into view
   useEffect(() => {
     const seo = SEO[lang as "en" | "es"] ?? SEO.en;
     const blogUrl = `${window.location.origin}/#blog`;
 
     const apply = () => {
-      document.title = seo.title;
-      upsertMeta('meta[name="description"][data-blog-seo="true"]', "name", "description", seo.description);
       upsertMeta('meta[property="og:title"][data-blog-seo="true"]', "property", "og:title", seo.title);
       upsertMeta(
         'meta[property="og:description"][data-blog-seo="true"]',
@@ -71,61 +66,15 @@ export const SoroBlog = () => {
       upsertMeta('meta[property="og:type"][data-blog-seo="true"]', "property", "og:type", "blog");
       upsertMeta('meta[property="og:url"][data-blog-seo="true"]', "property", "og:url", blogUrl);
       upsertMeta('meta[property="og:image"][data-blog-seo="true"]', "property", "og:image", BLOG_OG_IMAGE);
-      upsertMeta(
-        'meta[property="og:locale"][data-blog-seo="true"]',
-        "property",
-        "og:locale",
-        lang === "es" ? "es_CR" : "en_US"
-      );
-      upsertMeta(
-        'meta[name="twitter:card"][data-blog-seo="true"]',
-        "name",
-        "twitter:card",
-        "summary_large_image"
-      );
-      upsertMeta('meta[name="twitter:title"][data-blog-seo="true"]', "name", "twitter:title", seo.title);
-      upsertMeta(
-        'meta[name="twitter:description"][data-blog-seo="true"]',
-        "name",
-        "twitter:description",
-        seo.description
-      );
-      upsertMeta('meta[name="twitter:image"][data-blog-seo="true"]', "name", "twitter:image", BLOG_OG_IMAGE);
-      upsertLink("canonical", blogUrl);
     };
 
-    // JSON-LD structured data for the Blog section
-    const ld = document.createElement("script");
-    ld.type = "application/ld+json";
-    ld.dataset.blogSeo = "true";
-    ld.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      name: seo.title,
-      description: seo.description,
-      url: blogUrl,
-      inLanguage: lang === "es" ? "es" : "en",
-      publisher: {
-        "@type": "Organization",
-        name: "The Smile Sanctuary",
-        url: window.location.origin,
-      },
-      image: BLOG_OG_IMAGE,
-    });
-    document.head.appendChild(ld);
-
-    // Apply only when blog is in view or hash matches
     const section = document.getElementById("blog");
-    let active = window.location.hash === "#blog";
-    if (active) apply();
+    if (window.location.hash === "#blog") apply();
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.4) {
-            active = true;
-            apply();
-          }
+          if (entry.isIntersecting && entry.intersectionRatio > 0.4) apply();
         });
       },
       { threshold: [0.4] }
@@ -134,9 +83,7 @@ export const SoroBlog = () => {
 
     return () => {
       observer.disconnect();
-      document.head
-        .querySelectorAll('[data-blog-seo="true"]')
-        .forEach((el) => el.parentElement?.removeChild(el));
+      document.head.querySelectorAll('[data-blog-seo="true"]').forEach((el) => el.remove());
     };
   }, [lang]);
 
@@ -160,11 +107,57 @@ export const SoroBlog = () => {
           <p className="mt-5 text-muted-foreground text-lg leading-relaxed">{t("blog_desc")}</p>
         </div>
 
-        <div
-          className="mt-12 md:mt-16 reveal glass-warm rounded-[24px] shadow-soft p-6 md:p-10"
-          data-delay="100"
-        >
-          <div id="soro-blog" />
+        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {loading &&
+            Array.from({ length: 3 }).map((_, i) => (
+              <div
+                key={i}
+                className="glass-warm rounded-[24px] shadow-soft overflow-hidden animate-pulse"
+              >
+                <div className="aspect-[16/10] bg-muted" />
+                <div className="p-6 space-y-3">
+                  <div className="h-5 w-3/4 bg-muted rounded" />
+                  <div className="h-4 w-full bg-muted rounded" />
+                  <div className="h-4 w-5/6 bg-muted rounded" />
+                </div>
+              </div>
+            ))}
+
+          {!loading &&
+            articles.map((a, idx) => (
+              <Link
+                key={a.id}
+                to={`/blog/${a.slug}`}
+                className="reveal group glass-warm rounded-[24px] shadow-soft overflow-hidden card-float flex flex-col"
+                data-delay={String(idx * 80)}
+              >
+                {a.image && (
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img
+                      src={a.image}
+                      alt={a.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+                <div className="p-6 md:p-7 flex flex-col flex-1">
+                  <p className="text-primary/70 font-semibold tracking-[0.18em] text-[0.7rem] uppercase">
+                    {a.date}
+                  </p>
+                  <h3 className="mt-3 font-display font-bold text-foreground text-xl md:text-2xl tracking-tight leading-snug">
+                    {a.title}
+                  </h3>
+                  <p className="mt-3 text-muted-foreground leading-relaxed line-clamp-3">
+                    {a.excerpt}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-primary font-semibold text-sm tracking-wide">
+                    {lang === "es" ? "Leer artículo" : "Read article"}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+            ))}
         </div>
       </div>
     </section>
