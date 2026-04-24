@@ -97,6 +97,11 @@ const en = {
   svc_cta_desc: "Get a free, no-obligation quote within 24 hours.",
   svc_cta_primary: "Get My Free Quote",
   svc_cta_secondary: "Schedule a Consultation",
+
+  // Blog
+  blog_eyebrow: "Insights & Stories",
+  blog_title: "From Our Journal",
+  blog_desc: "Patient stories, expert guidance, and travel tips for your Smile Sanctuary journey.",
   svc_explore_more: "Explore More",
   svc_related: "Related Procedures",
   svc_learn_more: "Learn more",
@@ -193,6 +198,11 @@ const es: typeof en = {
   svc_cta_desc: "Obtén una cotización gratis y sin compromiso en 24 horas.",
   svc_cta_primary: "Obtén tu Cotización Gratis",
   svc_cta_secondary: "Agenda una Consulta",
+
+  // Blog
+  blog_eyebrow: "Historias y Consejos",
+  blog_title: "Desde Nuestro Diario",
+  blog_desc: "Historias de pacientes, guía experta y consejos de viaje para tu experiencia en Smile Sanctuary.",
   svc_explore_more: "Explora Más",
   svc_related: "Procedimientos Relacionados",
   svc_learn_more: "Conoce más",
