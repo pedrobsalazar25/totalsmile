@@ -100,6 +100,12 @@ const en = {
   svc_explore_more: "Explore More",
   svc_related: "Related Procedures",
   svc_learn_more: "Learn more",
+
+  // Blog
+  blog_eyebrow: "From Our Blog",
+  blog_title: "Insights, Stories & Smile Journeys",
+  blog_desc:
+    "Patient stories, expert tips, and everything you need to know about your journey to a healthier smile in Costa Rica.",
 };
 
 const es: typeof en = {
@@ -196,6 +202,11 @@ const es: typeof en = {
   svc_explore_more: "Explora Más",
   svc_related: "Procedimientos Relacionados",
   svc_learn_more: "Conoce más",
+
+  blog_eyebrow: "Desde Nuestro Blog",
+  blog_title: "Historias, Consejos y Sonrisas",
+  blog_desc:
+    "Historias de pacientes, consejos de expertos y todo lo que necesitas saber sobre tu camino hacia una sonrisa más saludable en Costa Rica.",
 };
 
 export const translations = { en, es };
