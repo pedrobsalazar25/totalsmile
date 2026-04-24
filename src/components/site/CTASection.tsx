@@ -1,4 +1,5 @@
 import wave from "@/assets/cta-wave.jpeg";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export const CTASection = () => {
@@ -15,12 +16,12 @@ export const CTASection = () => {
           </h2>
           <p className="mt-5 text-white/95 text-lg leading-relaxed">{t("cta_desc")}</p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <a
-              href="#"
+            <Link
+              to="/consultation"
               className="rounded-xl bg-coral text-coral-foreground px-8 py-4 font-semibold text-lg shadow-coral hover:scale-[1.02] active:scale-[0.98] transition-transform animate-pulse-soft"
             >
               {t("cta_quote")}
-            </a>
+            </Link>
             <a
               href="#locations"
               className="rounded-xl border-2 border-white/80 text-white px-8 py-4 font-semibold text-lg hover:bg-white hover:text-primary transition-colors"

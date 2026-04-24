@@ -27,7 +27,7 @@ export const ServiceCTA = () => {
           </p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <Link
-              to="/#cta"
+              to="/consultation"
               className="rounded-xl bg-coral text-coral-foreground px-8 py-4 font-semibold text-lg shadow-coral hover:scale-[1.02] active:scale-[0.98] transition-transform animate-pulse-soft"
             >
               {t("svc_cta_primary")}

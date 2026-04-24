@@ -1,5 +1,6 @@
 import heroBg from "@/assets/hero-bg.jpeg";
 import { ShieldCheck, Sparkles, Plane } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export const Hero = () => {
@@ -27,12 +28,12 @@ export const Hero = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#cta"
+            <Link
+              to="/consultation"
               className="rounded-xl bg-coral text-coral-foreground px-7 py-4 font-semibold shadow-coral hover:scale-[1.02] active:scale-[0.98] transition-transform animate-pulse-soft"
             >
               {t("cta_quote")}
-            </a>
+            </Link>
             <a
               href="#locations"
               className="rounded-xl border-2 border-white/80 text-white px-7 py-4 font-semibold hover:bg-white hover:text-primary transition-colors"
