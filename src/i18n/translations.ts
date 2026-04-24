@@ -198,6 +198,11 @@ const es: typeof en = {
   svc_cta_desc: "Obtén una cotización gratis y sin compromiso en 24 horas.",
   svc_cta_primary: "Obtén tu Cotización Gratis",
   svc_cta_secondary: "Agenda una Consulta",
+
+  // Blog
+  blog_eyebrow: "Historias y Consejos",
+  blog_title: "Desde Nuestro Diario",
+  blog_desc: "Historias de pacientes, guía experta y consejos de viaje para tu experiencia en Smile Sanctuary.",
   svc_explore_more: "Explora Más",
   svc_related: "Procedimientos Relacionados",
   svc_learn_more: "Conoce más",
