@@ -107,12 +107,12 @@ export const Navbar = () => {
           ))}
 
           <LanguageToggle scrolled={solid} />
-          <a
-            href={sectionLink("#cta")}
+          <Link
+            to="/consultation"
             className="rounded-xl bg-coral text-coral-foreground px-5 py-2.5 text-sm font-semibold shadow-coral hover:scale-[1.02] transition-transform"
           >
             {t("cta_quote")}
-          </a>
+          </Link>
         </nav>
 
         <div className="md:hidden flex items-center gap-2">
@@ -167,13 +167,13 @@ export const Navbar = () => {
                 {l.label}
               </a>
             ))}
-            <a
-              href={sectionLink("#cta")}
+            <Link
+              to="/consultation"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-xl bg-coral text-coral-foreground px-5 py-3 text-center font-semibold shadow-coral"
             >
               {t("cta_quote")}
-            </a>
+            </Link>
           </div>
         </div>
       )}

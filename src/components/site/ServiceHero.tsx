@@ -32,7 +32,7 @@ export const ServiceHero = ({ title, subheadline, image }: Props) => {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              to="/#cta"
+              to="/consultation"
               className="rounded-xl bg-coral text-coral-foreground px-7 py-4 font-semibold shadow-coral hover:scale-[1.02] active:scale-[0.98] transition-transform"
             >
               {t("svc_get_quote")}
