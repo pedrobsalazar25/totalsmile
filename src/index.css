@@ -123,129 +123,163 @@
     transform: translateY(0);
   }
 
-  /* ---- Trysoro blog embed: brand-align injected markup ---- */
-  .soro-embed,
-  #soro-blog {
+  /* ---- Trysoro blog embed: brand-align injected markup ----
+     Real classes emitted by Trysoro:
+     .soro-blog, .soro-blog-header, .soro-blog-list,
+     .soro-blog-card (anchor) > .soro-blog-card-image + .soro-blog-card-content
+       (-title, -date, -excerpt)
+     .soro-blog-article (single post view) etc. */
+
+  #soro-blog,
+  #soro-blog .soro-blog {
     font-family: 'Source Sans 3', system-ui, sans-serif;
     color: hsl(var(--foreground));
-  }
-
-  /* Neutralize embed backgrounds so our section bg shows through */
-  #soro-blog,
-  #soro-blog > div,
-  #soro-blog section,
-  #soro-blog main {
     background: transparent !important;
   }
 
-  /* Headings */
-  #soro-blog h1,
-  #soro-blog h2,
-  #soro-blog h3,
-  #soro-blog h4 {
-    font-family: 'Montserrat', system-ui, sans-serif !important;
-    color: hsl(var(--primary)) !important;
-    font-weight: 700 !important;
-    letter-spacing: -0.01em;
-  }
-  #soro-blog h2 { font-size: 1.5rem !important; line-height: 1.25 !important; }
-  #soro-blog h3 { font-size: 1.25rem !important; line-height: 1.3 !important; }
+  /* Hide the embed's own header (we render our own branded one) */
+  #soro-blog .soro-blog-header { display: none !important; }
 
-  /* Body text */
-  #soro-blog p,
-  #soro-blog li,
-  #soro-blog span:not([class*="badge"]):not([class*="tag"]) {
-    color: hsl(var(--foreground) / 0.8) !important;
-    line-height: 1.65;
+  /* Grid */
+  #soro-blog .soro-blog-list {
+    display: grid !important;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    #soro-blog .soro-blog-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1024px) {
+    #soro-blog .soro-blog-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
 
-  /* Cards / posts */
-  #soro-blog article,
-  #soro-blog [class*="card"],
-  #soro-blog [class*="post"]:not(ul):not(ol) {
+  /* Card (anchor wrapping image + content) */
+  #soro-blog .soro-blog-card {
+    display: flex !important;
+    flex-direction: column;
     background: hsl(var(--card)) !important;
+    border: 1px solid hsl(var(--border));
     border-radius: var(--radius) !important;
     box-shadow: var(--shadow-soft);
     overflow: hidden;
-    border: 1px solid hsl(var(--border));
+    text-decoration: none !important;
+    color: inherit !important;
     transition: var(--transition-smooth);
+    padding: 0 !important;
   }
-  #soro-blog article:hover,
-  #soro-blog [class*="card"]:hover {
+  #soro-blog .soro-blog-card:hover {
     box-shadow: var(--shadow-lift);
     transform: translateY(-4px);
   }
 
-  /* Images inside cards */
-  #soro-blog img {
+  /* Card image */
+  #soro-blog .soro-blog-card-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Card content */
+  #soro-blog .soro-blog-card-content {
+    padding: 1.25rem 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+  #soro-blog .soro-blog-card-date {
+    font-size: 0.75rem !important;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground)) !important;
+  }
+  #soro-blog .soro-blog-card-title {
+    font-family: 'Montserrat', system-ui, sans-serif !important;
+    color: hsl(var(--primary)) !important;
+    font-weight: 700 !important;
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+  }
+  #soro-blog .soro-blog-card-excerpt {
+    color: hsl(var(--foreground) / 0.75) !important;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0 !important;
+  }
+
+  /* Single-article view */
+  #soro-blog .soro-blog-article {
+    background: hsl(var(--card)) !important;
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+  }
+  #soro-blog .soro-blog-article-image {
+    width: 100%;
+    border-radius: calc(var(--radius) - 0.25rem);
+    margin-bottom: 1.5rem;
     object-fit: cover;
   }
-  #soro-blog article img,
-  #soro-blog [class*="card"] img {
-    width: 100%;
+  #soro-blog .soro-blog-article-title {
+    font-family: 'Montserrat', system-ui, sans-serif !important;
+    color: hsl(var(--primary)) !important;
+    font-weight: 700 !important;
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
   }
-
-  /* Links */
-  #soro-blog a {
+  #soro-blog .soro-blog-article-date {
+    color: hsl(var(--muted-foreground)) !important;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  #soro-blog .soro-blog-article-content {
+    color: hsl(var(--foreground) / 0.85) !important;
+    line-height: 1.7;
+  }
+  #soro-blog .soro-blog-article-content h1,
+  #soro-blog .soro-blog-article-content h2,
+  #soro-blog .soro-blog-article-content h3 {
+    font-family: 'Montserrat', system-ui, sans-serif !important;
+    color: hsl(var(--primary)) !important;
+  }
+  #soro-blog .soro-blog-article-content a {
     color: hsl(var(--primary));
-    text-decoration: none;
-    transition: color 200ms ease;
+    text-decoration: underline;
   }
-  #soro-blog a:hover {
-    color: hsl(var(--coral));
-  }
+  #soro-blog .soro-blog-article-content a:hover { color: hsl(var(--coral)); }
 
-  /* Buttons */
-  #soro-blog button,
-  #soro-blog a[class*="button"],
-  #soro-blog a[class*="btn"] {
+  /* Back button */
+  #soro-blog .soro-blog-back {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
     background: hsl(var(--coral)) !important;
     color: hsl(var(--coral-foreground)) !important;
     border-radius: 9999px !important;
-    padding: 0.625rem 1.25rem !important;
+    padding: 0.5rem 1.125rem !important;
     font-weight: 600 !important;
     border: none !important;
-    box-shadow: var(--shadow-soft);
+    text-decoration: none !important;
+    margin-bottom: 1.25rem;
     transition: var(--transition-smooth);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+    cursor: pointer;
   }
-  #soro-blog button:hover,
-  #soro-blog a[class*="button"]:hover,
-  #soro-blog a[class*="btn"]:hover {
+  #soro-blog .soro-blog-back:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-coral);
   }
 
-  /* Tags / badges / categories */
-  #soro-blog [class*="tag"],
-  #soro-blog [class*="badge"],
-  #soro-blog [class*="category"],
-  #soro-blog [class*="chip"] {
-    background: hsl(var(--secondary)) !important;
-    color: hsl(var(--primary)) !important;
-    border-radius: 9999px !important;
-    padding: 0.25rem 0.75rem !important;
-    font-size: 0.75rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    border: 1px solid hsl(var(--border));
-  }
-
-  /* Inputs (e.g. search/subscribe) */
-  #soro-blog input,
-  #soro-blog textarea {
-    background: hsl(var(--background)) !important;
-    border: 1px solid hsl(var(--border)) !important;
-    border-radius: 0.75rem !important;
-    color: hsl(var(--foreground)) !important;
-    padding: 0.625rem 0.875rem !important;
-  }
-  #soro-blog input:focus,
-  #soro-blog textarea:focus {
-    outline: 2px solid hsl(var(--ring) / 0.4) !important;
-    outline-offset: 1px;
+  /* States */
+  #soro-blog .soro-blog-empty,
+  #soro-blog .soro-blog-error,
+  #soro-blog .soro-blog-loading {
+    text-align: center;
+    color: hsl(var(--muted-foreground)) !important;
+    padding: 3rem 1rem;
   }
 }
