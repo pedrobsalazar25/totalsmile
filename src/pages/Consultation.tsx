@@ -9,9 +9,9 @@ const Consultation = () => {
   const { t } = useLanguage();
 
   useEffect(() => {
-    document.title = "Free Dental Consultation — The Smile Sanctuary";
+    document.title = "Free Dental Consultation — Total Smile";
     const desc =
-      "Request your free dental consultation and personalized quote with The Smile Sanctuary in Costa Rica.";
+      "Request your free dental consultation and personalized quote with Total Smile in Maturín, Venezuela.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");

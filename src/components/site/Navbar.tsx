@@ -44,7 +44,7 @@ export const Navbar = () => {
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="The Smile Sanctuary logo" className="h-11 w-11 rounded-full bg-white p-1 shadow-soft" />
           <span className={`font-display font-bold text-lg leading-tight ${solid ? "text-primary" : "text-white drop-shadow"}`}>
-            The Smile Sanctuary
+            Total Smile
           </span>
         </Link>
 

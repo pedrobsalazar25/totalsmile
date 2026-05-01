@@ -20,7 +20,7 @@ const ServicePage = () => {
 
   useEffect(() => {
     if (!service || !content) return;
-    document.title = `${content.title} — The Smile Sanctuary Costa Rica`;
+    document.title = `${content.title} — Total Smile Venezuela`;
     const desc = content.subheadline.slice(0, 155);
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {

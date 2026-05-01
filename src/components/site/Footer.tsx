@@ -18,7 +18,7 @@ export const Footer = () => {
           <div className="flex items-center gap-3">
             <img src={logo} alt="The Smile Sanctuary" className="h-12 w-12 rounded-full bg-white p-1" />
             <div>
-              <p className="font-display font-bold text-lg leading-tight">The Smile Sanctuary</p>
+              <p className="font-display font-bold text-lg leading-tight">Total Smile</p>
               <p className="text-white/70 text-sm">{t("footer_tagline")}</p>
             </div>
           </div>
@@ -28,7 +28,7 @@ export const Footer = () => {
         <div>
           <h4 className="font-display font-bold mb-4">{t("footer_visit")}</h4>
           <ul className="space-y-2 text-white/80">
-            <li>Alajuela • Pérez Zeledón • Playas del Coco</li>
+            <li>Maturín, Monagas, Venezuela</li>
           </ul>
         </div>
 
@@ -36,20 +36,10 @@ export const Footer = () => {
           <h4 className="font-display font-bold mb-4">{t("footer_contact")}</h4>
           <ul className="space-y-3 text-white/80">
             <li className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-accent shrink-0" />
-              <a href="mailto:info@smilesanctuary.cr" className="hover:text-accent transition-colors">info@smilesanctuary.cr</a>
-            </li>
-            <li className="flex items-center gap-3">
               <Phone className="h-4 w-4 text-accent shrink-0" />
-              <a href="tel:+18888763790" className="hover:text-accent transition-colors">(888) 876-3790</a>
+              <a href="tel:+584225558395" className="hover:text-accent transition-colors">0422-5558395</a>
             </li>
-            <li className="flex items-center gap-3">
-              <WhatsAppIcon className="h-4 w-4 text-accent shrink-0" />
-              <a href="https://wa.me/18057178138" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                (805) 717-8138
-              </a>
-            </li>
-            <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-accent shrink-0" /> Guanacaste, Costa Rica</li>
+            <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-accent shrink-0" /> C.C. Multicentro, Local L-15, Maturín</li>
           </ul>
         </div>
       </div>

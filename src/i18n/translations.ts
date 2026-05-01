@@ -12,49 +12,49 @@ const en = {
   hero_eyebrow: "Costa Rica Dental Excellence",
   hero_title: "Your Journey to a Perfect Smile Starts in Paradise",
   hero_desc:
-    "Why choose between affordable dental care and a luxury vacation? At The Smile Sanctuary, we combine elite dental expertise with the breathtaking beauty of Costa Rica.",
+    "Why choose between affordable dental care and a luxury experience? At Total Smile, we combine elite dental expertise with the comfort of Maturín, Venezuela.",
   hero_view_gallery: "View Our Gallery",
   hero_badge_save: "Save up to 70%",
   hero_badge_certified: "Board-certified specialists",
   hero_badge_concierge: "Concierge included",
 
   // Locations
-  loc_eyebrow: "Our Locations",
-  loc_title: "Three Sanctuaries. One Promise.",
-  loc_desc: "From the gateway airport to mountain calm to Pacific shores — your care follows you.",
-  loc_alajuela_title: "Alajuela: The Gateway",
+  loc_eyebrow: "Our Location",
+  loc_title: "Your Smile Destination in Maturín",
+  loc_desc: "Modern dental care in the heart of Monagas, Venezuela — with full concierge support for your entire experience.",
+  loc_alajuela_title: "Maturín: Our Home Base",
   loc_alajuela_desc:
-    "Located just minutes from Juan Santamaría International Airport (SJO), our Alajuela clinic is designed for convenience. Perfect for your arrival consultation, final fittings, or quick cosmetic enhancements before you head home.",
-  loc_pz_title: "Pérez Zeledón: Mountain Wellness",
+    "Located in the heart of Maturín, our clinic provides convenient access for local and international patients. Perfect for consultations, treatments, and follow-up care in a comfortable, modern setting.",
+  loc_pz_title: "Monagas Region",
   loc_pz_desc:
-    "Nestled in the lush, green heart of the Southern Zone, our Pérez Zeledón office offers a tranquil setting for those who prefer the cool mountain air and authentic Costa Rican culture. It's the ideal spot for restorative work in a peaceful, stress-free environment.",
-  loc_coco_title: "Playas del Coco: The Flagship & Recovery Center",
+    "Serving the entire Monagas state and beyond, our central location makes quality dental care accessible to patients from across Venezuela and internationally.",
+  loc_coco_title: "Premium Care Facility",
   loc_coco_desc:
-    "Our premier surgical suite and Exclusive Recovery Center are located in the sun-drenched Guanacaste region. Here, we perform our most advanced procedures, followed by world-class aftercare in our private recovery facility.",
+    "Our state-of-the-art facility in Maturín is equipped with the latest dental technology. We provide comprehensive dental services with a focus on patient comfort and exceptional results.",
 
   // Recovery
   rec_eyebrow: "The Recovery Experience",
-  rec_title: "Heal Where the Ocean Meets the Shore",
+  rec_title: "Comfortable Recovery, Exceptional Results",
   rec_desc:
-    "The most critical part of dental surgery is the recovery. Most clinics send you back to a standard hotel — we bring you home to our Playa del Coco Recovery Center.",
+    "The most critical part of dental surgery is the recovery. Our clinic ensures you receive proper post-operative care with a focus on your comfort and healing.",
   rec_f1_title: "Specialized Post-Op Nutrition",
-  rec_f1_desc: "Gourmet soft-food menus designed for dental healing.",
+  rec_f1_desc: "Soft-food menus designed for dental healing.",
   rec_f2_title: "Professional On-Site Support",
-  rec_f2_desc: "Peace of mind knowing our team is available to monitor your progress.",
+  rec_f2_desc: "Our team monitors your progress throughout your recovery.",
   rec_f3_title: "Total Relaxation",
-  rec_f3_desc: "Recline in luxury while the Pacific breeze accelerates your well-being.",
+  rec_f3_desc: "Rest in comfort while our team takes care of everything.",
 
   // Concierge
-  con_eyebrow: "Patient Concierge & Tours",
-  con_title: "We Handle the Logistics. You Enjoy the View.",
+  con_eyebrow: "Patient Concierge & Support",
+  con_title: "We Handle the Logistics. You Focus on Your Smile.",
   con_desc:
-    "Navigating a foreign country during a medical procedure shouldn't be stressful. Our concierge team manages every detail.",
-  con_f1_title: "Private Airport Transfers",
-  con_f1_desc: "We meet you at the gate.",
-  con_f2_title: "Custom Itineraries",
-  con_f2_desc: "Want to see a volcano or a cloud forest? We arrange tours that fit your recovery timeline.",
-  con_f3_title: "Inter-Clinic Transport",
-  con_f3_desc: "Seamless travel between Alajuela, PZ, and the Coast.",
+    "Navigating your dental journey shouldn't be stressful. Our concierge team manages every detail so you can focus on your treatment.",
+  con_f1_title: "WhatsApp Support",
+  con_f1_desc: "Direct communication via WhatsApp for quick answers.",
+  con_f2_title: "Appointment Coordination",
+  con_f2_desc: "We help schedule and organize all your dental appointments.",
+  con_f3_title: "Treatment Planning",
+  con_f3_desc: "Personalized treatment plans tailored to your needs.",
 
   // CTA
   cta_title: "Ready for a Free Virtual Consultation?",
@@ -62,12 +62,12 @@ const en = {
     "Upload your X-rays or dental plan today and receive a transparent, no-obligation quote within 24 hours.",
 
   // Footer
-  footer_tagline: "Costa Rica Dental Excellence",
-  footer_blurb: "Elite dental care, paired with the warmth of paradise. Three locations across Costa Rica.",
-  footer_visit: "Visit",
+  footer_tagline: "Maturín Dental Excellence",
+  footer_blurb: "Elite dental care in the heart of Monagas, Venezuela. Modern facilities, experienced specialists, and personalized service.",
+  footer_visit: "Location",
   footer_contact: "Contact",
   footer_rights: "All rights reserved.",
-  footer_made: "Made with care in Costa Rica.",
+  footer_made: "Made with care in Venezuela.",
 
   // Toggle
   lang_toggle_aria: "Switch language",
@@ -88,11 +88,9 @@ const en = {
   svc_what_to_expect: "What to Expect",
   svc_process: "The Procedure Process",
   svc_step1_title: "Consultation",
-  svc_step1_desc: "Free virtual consultation and treatment plan within 24 hours.",
-  svc_step2_title: "Procedure",
-  svc_step2_desc: "Performed by board-certified specialists in our state-of-the-art clinics.",
-  svc_step3_title: "Recovery",
-  svc_step3_desc: "Heal in luxury at our Playa del Coco Recovery Center with concierge support.",
+svc_step1_desc: "Free consultation and personalized treatment plan within 24 hours.",
+  svc_step2_desc: "Performed by board-certified specialists in our modern clinic.",
+  svc_step3_desc: "Recover comfortably with follow-up care and monitoring.",
   svc_cta_title: "Ready to Get Started?",
   svc_cta_desc: "Get a free, no-obligation quote within 24 hours.",
   svc_cta_primary: "Get My Free Quote",
@@ -105,7 +103,7 @@ const en = {
   blog_eyebrow: "From Our Blog",
   blog_title: "Insights, Stories & Smile Journeys",
   blog_desc:
-    "Patient stories, expert tips, and everything you need to know about your journey to a healthier smile in Costa Rica.",
+    "Patient stories, expert tips, and everything you need to know about your journey to a healthier smile in Maturín.",
 
   // Consultation page
   consult_eyebrow: "Free Consultation",
