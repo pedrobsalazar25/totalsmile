@@ -12,9 +12,9 @@ const LanguageContext = createContext<Ctx | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLangState] = useState<Lang>(() => {
-    if (typeof window === "undefined") return "en";
+    if (typeof window === "undefined") return "es";
     const stored = localStorage.getItem("lang") as Lang | null;
-    return stored === "es" || stored === "en" ? stored : "en";
+    return stored === "es" || stored === "en" ? stored : "es";
   });
 
   useEffect(() => {
